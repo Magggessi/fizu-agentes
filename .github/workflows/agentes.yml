@@ -2,7 +2,9 @@ name: Agentes Fizu
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 * * * *'   # hora cheia
+    - cron: '20 * * * *'  # 20 minutos
+    - cron: '40 * * * *'  # 40 minutos
   workflow_dispatch:
 
 jobs:
