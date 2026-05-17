@@ -1,0 +1,18 @@
+name: Agentes Fizu
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  postar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chamar Edge Function dos Agentes
+        run: |
+          curl -s -X POST \
+            'https://tnwildfshzrvktrlfjhz.supabase.co/functions/v1/agentes-postagem' \
+            -H 'Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}' \
+            -H 'Content-Type: application/json' \
+            -d '{}'
